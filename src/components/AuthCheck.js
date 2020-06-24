@@ -16,9 +16,8 @@ class AuthCheck extends Component {
   }
 
   render() {
-    return <div>Hi this is the authCheck!!</div>;
+    return <div></div>;
   }
 }
 
 export default connect(null, { fetchAuth })(AuthCheck);
-// export default connect(null)(AuthCheck);

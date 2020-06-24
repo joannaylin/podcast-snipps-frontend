@@ -9,6 +9,7 @@ import "./App.css";
 
 class App extends Component {
   componentDidMount() {
+    console.log("Component Mounted")
     const token = localStorage.getItem("token");
     if (token) {
       this.props.getCurrentUser();
