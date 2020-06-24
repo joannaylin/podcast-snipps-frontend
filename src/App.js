@@ -1,17 +1,27 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import LoginButton from "./components/LoginButton"
+import { connect } from "react-redux";
+import LoginButton from "./components/LoginButton";
+import AuthCheck from "./components/AuthCheck";
+import { getCurrentUser } from "./actions/user";
+import Homepage from "./containers/Homepage";
 import "./App.css";
 
-
 class App extends Component {
-  
+  componentDidMount() {
+    const token = localStorage.getItem("token");
+    if (token) {
+      this.props.getCurrentUser();
+    }
+  }
+
   render() {
     return (
       <Router>
         <Switch>
           <Route exact path="/login" component={LoginButton} />
-          <Route exact path="/homepage" render={() => <h1>you made it to the homepage!!</h1>} />
+          <Route exact path="/authorized" component={AuthCheck} />
+          <Route exact path="/homepage" component={Homepage} />
           <Route render={() => <h1>ERROR: NO PATH MATCHES</h1>} />
         </Switch>
       </Router>
@@ -19,4 +29,11 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    user: state.users
+  }
+};
+
+export default connect(mapStateToProps, { getCurrentUser })(App);
