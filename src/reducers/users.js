@@ -8,7 +8,6 @@ export default function users(
 ) {
   switch (action.type) {
     case "UPDATE_AUTHORIZATION":
-      console.log(action)
       return { ...state, user: action.user, isLoggedIn: true };
     case "LOGOUT_USER":
       localStorage.removeItem("token")

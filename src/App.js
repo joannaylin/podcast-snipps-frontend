@@ -5,11 +5,11 @@ import LoginButton from "./components/LoginButton";
 import AuthCheck from "./components/AuthCheck";
 import { getCurrentUser } from "./actions/user";
 import Homepage from "./containers/Homepage";
+import PodcastPage from "./containers/PodcastPage"
 import "./App.css";
 
 class App extends Component {
   componentDidMount() {
-    console.log("Component Mounted")
     const token = localStorage.getItem("token");
     if (token) {
       this.props.getCurrentUser();
@@ -23,7 +23,7 @@ class App extends Component {
           <Route exact path="/login" component={LoginButton} />
           <Route exact path="/authorized" component={AuthCheck} />
           <Route exact path="/homepage" component={Homepage} />
-          <Route render={() => <h1>ERROR: NO PATH MATCHES</h1>} />
+          <Route exact path="/show/:id" component={PodcastPage} />
         </Switch>
       </Router>
     );
@@ -31,10 +31,10 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state);
+  console.log(state)
   return {
-    user: state.users
-  }
+    user: state.users,
+  };
 };
 
 export default connect(mapStateToProps, { getCurrentUser })(App);
