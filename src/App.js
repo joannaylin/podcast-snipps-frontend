@@ -6,6 +6,7 @@ import AuthCheck from "./components/AuthCheck";
 import { getCurrentUser } from "./actions/user";
 import Homepage from "./containers/Homepage";
 import PodcastPage from "./containers/PodcastPage"
+import EpisodePage from "./containers/EpisodePage"
 import "./App.css";
 
 class App extends Component {
@@ -24,6 +25,7 @@ class App extends Component {
           <Route exact path="/authorized" component={AuthCheck} />
           <Route exact path="/homepage" component={Homepage} />
           <Route exact path="/show/:id" component={PodcastPage} />
+          <Route exact path="/episode/:id" component={EpisodePage} />
         </Switch>
       </Router>
     );
