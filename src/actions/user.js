@@ -33,7 +33,6 @@ export function getCurrentUser() {
     return fetch(`${apiURL}auth`, reqObj)
       .then((resp) => resp.json())
       .then((json) => {
-        console.log(json);
         if (!json.error) {
           const user = json;
           return dispatch({ type: "UPDATE_AUTHORIZATION", user });
