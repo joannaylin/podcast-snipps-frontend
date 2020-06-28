@@ -7,7 +7,7 @@ const SearchItem = (props) => {
 
   return (
     <div>
-      <Link to={{ pathname: `/show/${id}`, state: { showid: id } }} key={id}>
+      <Link to={{ pathname: `/show/${id}`, state: { showId: id } }} key={id}>
         <img src={imgUrl} alt="podcast logo" />
         <h1>{name}</h1>
         <p>{description}</p>

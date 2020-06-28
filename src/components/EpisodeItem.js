@@ -8,7 +8,7 @@ const EpisodeItem = (props) => {
       <Link
         to={{
           pathname: `/episode/${props.episode.id}`,
-          state: { episode: props.episode },
+          state: { episodeId: props.episode.id },
         }}
       >
         <h1>{name}</h1>

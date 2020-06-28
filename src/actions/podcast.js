@@ -11,7 +11,7 @@ export function fetchSearchResults(query) {
       },
       body: JSON.stringify({ query }),
     };
-    fetch(`${apiURL}search`, reqObj)
+    fetch(`${apiURL}podcast_search`, reqObj)
       .then((resp) => resp.json())
       .then((shows) => {
         const podcasts = shows.shows.shows.items;
