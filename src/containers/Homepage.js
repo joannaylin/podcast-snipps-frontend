@@ -3,7 +3,7 @@ import NavBar from "../components/NavBar";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { fetchSearchResults } from "../actions/podcast";
-import SearchList from "./SearchList"
+import SearchList from "./SearchList";
 
 const HomeDiv = styled.div`
   display: block;
@@ -25,8 +25,9 @@ class Homepage extends Component {
   };
 
   handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     this.props.fetchSearchResults(this.state.query);
+    this.setState({ query: "" });
   };
 
   render() {
@@ -35,7 +36,7 @@ class Homepage extends Component {
         <NavBar />
         <h1>Podcast Snippets</h1>
         <h2>Search Podcasts</h2>
-        <form onSubmit={e => this.handleSubmit(e)}>
+        <form onSubmit={(e) => this.handleSubmit(e)}>
           <input
             type="text"
             placeholder="Name a podcast, any podcast.."
@@ -44,7 +45,9 @@ class Homepage extends Component {
           ></input>
           <button type="submit">Search</button>
         </form>
-        {this.props.searchResults.length > 0 ? <SearchList results={this.props.searchResults} /> : null}
+        {this.props.searchResults.length > 0 ? (
+          <SearchList results={this.props.searchResults} />
+        ) : null}
       </HomeDiv>
     );
   }

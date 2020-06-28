@@ -1,23 +1,18 @@
 import React from "react";
 
-const Iframe = ({ source }) => {
-  if (!source) {
-    return <div>Loading...</div>;
-  }
+const Iframe = (props) => {
 
-  const src = source;
   return (
     <div>
-      <div>
-        <iframe
-          src={src}
-          width="100%"
-          height="232"
-          frameBorder="0"
-          allowtransparency="true"
-          allow="encrypted-media"
-        ></iframe>
-      </div>
+      <iframe
+        src={`https://open.spotify.com/embed-podcast/episode/${props.id}`}
+        title={props.title}
+        width="100%"
+        height="232"
+        frameBorder="0"
+        allowtransparency="true"
+        allow="encrypted-media"
+      ></iframe>
     </div>
   );
 };

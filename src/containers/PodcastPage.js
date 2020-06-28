@@ -6,8 +6,8 @@ import NavBar from "../components/NavBar"
 
 class PodcastPage extends Component {
   componentDidMount() {
-    this.props.fetchPodcastInfo(this.props.location.state.showid)
-    this.props.fetchPodcastEpisodes(this.props.location.state.showid)
+    this.props.fetchPodcastInfo(this.props.location.state.showId)
+    this.props.fetchPodcastEpisodes(this.props.location.state.showId)
   }
 
   render() {

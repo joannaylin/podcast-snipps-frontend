@@ -1,14 +1,19 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 const EpisodeItem = (props) => {
   const { name, description, release_date } = props.episode;
   return (
     <div>
-      <Link to="/">
-      <h1>{name}</h1>
-      <p>{description}</p>
-      <p>{release_date}</p>
+      <Link
+        to={{
+          pathname: `/episode/${props.episode.id}`,
+          state: { episodeId: props.episode.id },
+        }}
+      >
+        <h1>{name}</h1>
+        <p>{description}</p>
+        <p>{release_date}</p>
       </Link>
     </div>
   );
