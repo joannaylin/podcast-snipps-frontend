@@ -12,12 +12,10 @@ const BookmarkContainer = (props) => {
 
   return (
     <div>
-      {/* need to figure out how to not have an error when clicking on the link
-      */}
       <Link
         to={{
-          pathname: `/show/${spotifyEpisodeId}`,
-          state: { showId: spotifyEpisodeId },
+          pathname: `/episode/${spotifyEpisodeId}`,
+          state: { episodeId: spotifyEpisodeId },
         }}
       >
         <h1>{props.episode[0]}</h1>

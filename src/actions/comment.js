@@ -1,5 +1,6 @@
 const apiURL = "http://localhost:3000/api/v1/";
 
+// fetch user's comments from backend
 export function getComments() {
   return (dispatch) => {
     const reqObj = {
@@ -19,6 +20,8 @@ export function getComments() {
   };
 }
 
+// post request to add comment to backend
+// NOTE: post request returns *all* of user's comments 
 export function addComment(episode, comment) {
   return (dispatch) => {
     const reqObj = {
@@ -40,6 +43,7 @@ export function addComment(episode, comment) {
   };
 }
 
+// update comment in backend, returns the one comment
 export function updateComment(id, note) {
   return (dispatch) => {
     const reqObj = {
@@ -57,6 +61,7 @@ export function updateComment(id, note) {
   };
 }
 
+// delete comment in backend
 export function removeComment(id) {
   return (dispatch) => {
     const reqObj = {

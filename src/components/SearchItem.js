@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 
 const SearchItem = (props) => {
   const { description, id, name } = props.podcast;
-  const imgUrl = props.podcast.images[2].url;
+  // not every podcast has 3 images, cannot specify image[2] consistently (may have errors)
+  const images = props.podcast.images;
+  const imgUrl = images[images.length - 1].url;
 
   return (
     <div>
@@ -16,4 +18,4 @@ const SearchItem = (props) => {
   );
 };
 
-export default (SearchItem);
+export default SearchItem;

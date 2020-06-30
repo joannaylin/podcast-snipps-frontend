@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchPodcastInfo, fetchPodcastEpisodes } from "../actions/podcast.js";
-import EpisodeList from "./EpisodeList";
+import EpisodeList from "../components/EpisodeList";
 import NavBar from "../components/NavBar";
 
 class PodcastPage extends Component {

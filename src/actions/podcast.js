@@ -1,5 +1,6 @@
 const apiURL = "http://localhost:3000/api/v1/";
 
+// fetch podcasts that satisfy search query
 export function fetchSearchResults(query) {
   return (dispatch) => {
     const reqObj = {
@@ -20,7 +21,8 @@ export function fetchSearchResults(query) {
   };
 }
 
-export function fetchPodcastInfo(id) {
+// fetch podcast info using spotify show id
+export function fetchPodcastInfo(showId) {
   return (dispatch) => {
     const reqObj = {
       method: "POST",
@@ -29,7 +31,7 @@ export function fetchPodcastInfo(id) {
         Accept: "application/json",
         Authorization: "Bearer " + localStorage.getItem("token"),
       },
-      body: JSON.stringify({ id }),
+      body: JSON.stringify({ showId }),
     };
     fetch(`${apiURL}podcast`, reqObj)
       .then((resp) => resp.json())
@@ -40,7 +42,8 @@ export function fetchPodcastInfo(id) {
   };
 }
 
-export function fetchPodcastEpisodes(id) {
+// fetch podcast episodes using spotify show id
+export function fetchPodcastEpisodes(showId) {
   return (dispatch) => {
     const reqObj = {
       method: "POST",
@@ -49,7 +52,7 @@ export function fetchPodcastEpisodes(id) {
         Accept: "application/json",
         Authorization: "Bearer " + localStorage.getItem("token"),
       },
-      body: JSON.stringify({ id }),
+      body: JSON.stringify({ showId }),
     };
     fetch(`${apiURL}podcast_episodes`, reqObj)
       .then((resp) => resp.json())

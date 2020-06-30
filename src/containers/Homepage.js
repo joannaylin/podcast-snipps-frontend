@@ -3,7 +3,7 @@ import NavBar from "../components/NavBar";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { fetchSearchResults } from "../actions/podcast";
-import SearchList from "./SearchList";
+import SearchList from "../components/SearchList";
 
 const HomeDiv = styled.div`
   display: block;
@@ -45,9 +45,8 @@ class Homepage extends Component {
           ></input>
           <button type="submit">Search</button>
         </form>
-        {this.props.searchResults.length > 0 ? (
-          <SearchList results={this.props.searchResults} />
-        ) : null}
+        <SearchList results={this.props.searchResults}/>
+        {/* TODO: render an error message when searchResults are 0  */}
       </HomeDiv>
     );
   }

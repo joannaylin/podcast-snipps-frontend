@@ -47,7 +47,7 @@ class EpisodePage extends Component {
   };
 
   durationMinutes = () =>
-    Math.floor((this.props.currentPage.duration_ms / 1000) * (1 / 60));
+    Math.ceil((this.props.currentPage.duration_ms / 1000) * (1 / 60));
 
   grabEpisodeComments = () => {
     const comments = this.props.comments.filter(

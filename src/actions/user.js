@@ -1,5 +1,7 @@
 const apiURL = "http://localhost:3000/api/v1/";
 
+// takes authorization code from spotify and sends to backend
+// backend will take care of swap to access and refresh tokens
 export function fetchAuth(code) {
   return (dispatch) => {
     const reqObj = {
@@ -21,6 +23,7 @@ export function fetchAuth(code) {
   };
 }
 
+// gets the current user's username, spotify_url and profile image to keep in store
 export function getCurrentUser() {
   return (dispatch) => {
     const reqObj = {
@@ -41,6 +44,7 @@ export function getCurrentUser() {
   };
 }
 
+// logs out user
 export function logoutUser() {
   return { type: "LOGOUT_USER" };
 }

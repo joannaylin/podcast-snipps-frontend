@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import NavBar from "../components/NavBar";
 import { getComments } from "../actions/comment";
-import BookmarkContainer from "./BookmarkContainer";
+import NavBar from "../components/NavBar";
+import BookmarkContainer from "../components/BookmarkContainer";
 
 class UserPage extends Component {
   componentDidMount() {
@@ -36,7 +36,3 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, { getComments })(UserPage);
 
-// episodes: state.comments.reduce((a, b) => {
-//   a[b.episode.episode_name] = [...(a[b.episode.episode_name] || []), b];
-//   return a;
-// }, []),

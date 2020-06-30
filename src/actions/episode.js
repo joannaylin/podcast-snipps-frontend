@@ -1,5 +1,6 @@
 const apiURL = "http://localhost:3000/api/v1/";
 
+// fetch episode info using spotify's episodeId
 export function fetchEpisode(episodeId) {
   return (dispatch) => {
     const reqObj = {
