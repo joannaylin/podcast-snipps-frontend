@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchPodcastInfo, fetchPodcastEpisodes } from "../actions/podcast.js";
-import EpisodeList from "./EpisodeList"
-import NavBar from "../components/NavBar"
+import EpisodeList from "./EpisodeList";
+import NavBar from "../components/NavBar";
 
 class PodcastPage extends Component {
   componentDidMount() {
-    this.props.fetchPodcastInfo(this.props.location.state.showId)
-    this.props.fetchPodcastEpisodes(this.props.location.state.showId)
+    this.props.fetchPodcastInfo(this.props.location.state.showId);
+    this.props.fetchPodcastEpisodes(this.props.location.state.showId);
   }
 
   render() {
@@ -30,4 +30,7 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, {fetchPodcastInfo, fetchPodcastEpisodes})(PodcastPage);
+export default connect(mapStateToProps, {
+  fetchPodcastInfo,
+  fetchPodcastEpisodes,
+})(PodcastPage);

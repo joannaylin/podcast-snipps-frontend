@@ -13,7 +13,6 @@ export function getComments() {
     fetch(`${apiURL}user`, reqObj)
       .then((resp) => resp.json())
       .then((data) => {
-        console.log(data);
         const comments = data.comments;
         dispatch({ type: "GET_COMMENTS", comments });
       });
@@ -35,7 +34,6 @@ export function addComment(episode, comment) {
     fetch(`${apiURL}episodes`, reqObj)
       .then((resp) => resp.json())
       .then((data) => {
-        console.log(data);
         const comments = data.comments;
         dispatch({ type: "ADD_COMMENT", comments });
       });
