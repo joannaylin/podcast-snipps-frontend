@@ -3,6 +3,9 @@ import { connect } from "react-redux";
 import { fetchPodcastInfo, fetchPodcastEpisodes } from "../actions/podcast.js";
 import EpisodeList from "../components/EpisodeList";
 import NavBar from "../components/NavBar";
+import { PodcastImage } from "../shared/Images";
+import { Title } from "../shared/Titles";
+import { Description } from "../shared/Descriptions";
 
 class PodcastPage extends Component {
   componentDidMount() {
@@ -12,11 +15,14 @@ class PodcastPage extends Component {
 
   render() {
     const { name, description } = this.props.show;
+
     return (
       <div>
         <NavBar />
-        <h1>{name}</h1>
-        <p>{description}</p>
+        <PodcastImage src={this.props.location.state.imgUrl} />
+        <Title>{name}</Title>
+        <Description>{description}</Description>
+        <br/>
         <EpisodeList episodes={this.props.episodes} />
       </div>
     );

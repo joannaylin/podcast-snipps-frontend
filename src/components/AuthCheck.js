@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchAuth } from "../actions/user";
+import { fetchAuth, getCurrentUser } from "../actions/user";
 
 // component needed to confirm authorization code
 // immediately goes to homepage if successful, otherwise redirected to "/"
@@ -22,4 +22,4 @@ class AuthCheck extends Component {
   }
 }
 
-export default connect(null, { fetchAuth })(AuthCheck);
+export default connect(null, { fetchAuth, getCurrentUser })(AuthCheck);

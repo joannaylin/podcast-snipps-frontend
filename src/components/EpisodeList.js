@@ -11,6 +11,7 @@ const EpisodeList = (props) => {
   return (
     <div>
       <h1>Recent Episodes</h1>
+      <br/>
       <ul>{renderEpisodes()}</ul>
     </div>
   );

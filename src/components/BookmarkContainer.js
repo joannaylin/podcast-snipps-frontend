@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { PlainLink } from "../shared/Links";
+import { Title } from "../shared/Titles"
 
 const BookmarkContainer = (props) => {
   const spotifyEpisodeId = props.episode[1][0].episode.spotify_episode_id;
@@ -12,14 +13,14 @@ const BookmarkContainer = (props) => {
 
   return (
     <div>
-      <Link
+      <PlainLink
         to={{
           pathname: `/episode/${spotifyEpisodeId}`,
           state: { episodeId: spotifyEpisodeId },
         }}
       >
-        <h1>{props.episode[0]}</h1>
-      </Link>
+        <Title>{props.episode[0]}</Title>
+      </PlainLink>
       <ul>{renderComments()}</ul>
     </div>
   );

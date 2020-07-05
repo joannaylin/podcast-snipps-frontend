@@ -2,9 +2,20 @@ import React, { Component } from "react";
 import NavBar from "../components/NavBar";
 import Iframe from "../components/Iframe";
 import { connect } from "react-redux";
+import { getCurrentUser } from "../actions/user";
 import { fetchEpisode } from "../actions/episode";
 import { addComment, getComments } from "../actions/comment";
 import Comment from "../components/Comment";
+import { Title } from "../shared/Titles";
+import { Description } from "../shared/Descriptions";
+import { BaseForm, BaseInput, BaseButton } from "../shared/Forms";
+import styled from "styled-components";
+import SpotifyPlayer from "react-spotify-web-playback";
+
+const NoteButton = styled(BaseButton)`
+  width: 100px;
+  font-size: small;
+`;
 
 class EpisodePage extends Component {
   constructor() {
@@ -15,6 +26,7 @@ class EpisodePage extends Component {
   }
 
   componentDidMount() {
+    this.props.getCurrentUser();
     this.props.fetchEpisode(this.props.location.state.episodeId);
     this.props.getComments();
   }
@@ -60,24 +72,35 @@ class EpisodePage extends Component {
   };
 
   render() {
-    const { id, name, description, release_date } = this.props.currentPage;
+    console.log(this.props.currentPage);
+
+    const { id, name, description, release_date, uri } = this.props.currentPage;
     return (
       <div>
         <NavBar />
-        <h1>{name}</h1>
+        <Title>{name}</Title>
+        {this.props.currentPage.show ? (
+          <h3>{this.props.currentPage.show.name}</h3>
+        ) : null}
         <h4>{release_date}</h4>
         <h6>{this.durationMinutes()} minutes</h6>
-        <p>{description}</p>
+        <Description>{description}</Description>
         <Iframe id={id} title={name} />
-        <form onSubmit={this.handleSubmit}>
-          <input
+        {/* <SpotifyPlayer token={this.props.user.access} uris={[uri]} /> */}
+        {/* <SpotifyPlayer
+          token={this.props.user.access}
+          uris={["spotify:artist:6HQYnRM4OzToCYPpVBInuU"]}
+        /> */}
+        <BaseForm onSubmit={this.handleSubmit}>
+          <BaseInput
             type="text"
             value={this.state.note}
             onChange={this.handleChange}
-          ></input>
-          <button type="submit">Add Note</button>
-        </form>
-        <h1>Your Comments:</h1>
+            placeholder="interesting note here.."
+          ></BaseInput>
+          <NoteButton type="submit">Add Note</NoteButton>
+        </BaseForm>
+        <Title>Your Comments:</Title>
         <ul>{this.grabEpisodeComments()}</ul>
       </div>
     );
@@ -89,6 +112,7 @@ const mapStateToProps = (state) => {
     currentPage: state.episode.currentPage,
     isPlaying: state.episode.currentPage.isPlaying,
     comments: state.comments,
+    user: state.users.user,
   };
 };
 
@@ -96,4 +120,5 @@ export default connect(mapStateToProps, {
   fetchEpisode,
   addComment,
   getComments,
+  getCurrentUser,
 })(EpisodePage);

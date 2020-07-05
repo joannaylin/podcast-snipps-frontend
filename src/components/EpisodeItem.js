@@ -1,20 +1,23 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { PlainLink} from "../shared/Links"
+import { Title } from "../shared/Titles.js"
+import { Description } from "../shared/Descriptions.js"
+
 
 const EpisodeItem = (props) => {
   const { name, description, release_date } = props.episode;
   return (
     <div>
-      <Link
+      <PlainLink
         to={{
           pathname: `/episode/${props.episode.id}`,
           state: { episodeId: props.episode.id },
         }}
       >
-        <h1>{name}</h1>
-        <p>{description}</p>
-        <p>{release_date}</p>
-      </Link>
+        <Title>{name}</Title>
+        <Description>{release_date}</Description>
+        <Description>{description}</Description>
+      </PlainLink>
     </div>
   );
 };
