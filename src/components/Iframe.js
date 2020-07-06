@@ -5,7 +5,7 @@ const Iframe = (props) => {
     <iframe
       src={`https://open.spotify.com/embed-podcast/episode/${props.id}`}
       title={props.title}
-      width="100%"
+      width="500px"
       height="232"
       frameBorder="0"
       allowtransparency="true"

@@ -1,5 +1,7 @@
 import React from "react";
 import EpisodeItem from "./EpisodeItem";
+import { Typography } from "@material-ui/core";
+
 
 const EpisodeList = (props) => {
   const renderEpisodes = () => {
@@ -10,9 +12,8 @@ const EpisodeList = (props) => {
 
   return (
     <div>
-      <h1>Recent Episodes</h1>
-      <br/>
-      <ul>{renderEpisodes()}</ul>
+      <Typography style={{color: "#1DB954"}} variant="h4" gutterBottom>Recent Episodes</Typography>
+      {renderEpisodes()}
     </div>
   );
 };

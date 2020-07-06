@@ -9,6 +9,8 @@ import PodcastPage from "./containers/PodcastPage"
 import EpisodePage from "./containers/EpisodePage"
 import UserPage from "./containers/UserPage"
 import "./App.css";
+import 'fontsource-roboto';
+
 
 class App extends Component {
   componentDidMount() {

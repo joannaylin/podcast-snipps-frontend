@@ -1,21 +1,50 @@
 import React, { Component } from "react";
-import NavBar from "../components/NavBar";
-import Iframe from "../components/Iframe";
 import { connect } from "react-redux";
 import { getCurrentUser } from "../actions/user";
 import { fetchEpisode } from "../actions/episode";
 import { addComment, getComments } from "../actions/comment";
+import NavBar from "../components/NavBar";
+import Iframe from "../components/Iframe";
 import Comment from "../components/Comment";
-import { Title } from "../shared/Titles";
-import { Description } from "../shared/Descriptions";
-import { BaseForm, BaseInput, BaseButton } from "../shared/Forms";
 import styled from "styled-components";
-import SpotifyPlayer from "react-spotify-web-playback";
+import {
+  Button,
+  Card,
+  CardContent,
+  List,
+  TextField,
+  Grid,
+  Typography,
+} from "@material-ui/core";
 
-const NoteButton = styled(BaseButton)`
-  width: 100px;
-  font-size: small;
-`;
+const EpisodeDiv = styled(Grid)({
+  paddingTop: "150px",
+  paddingLeft: "250px",
+  paddingRight: "100px",
+  backgroundColor: "rgba(0,0,0,0.3)",
+});
+
+const CardDiv = styled(Card)({
+  backgroundColor: "black",
+  color: "white",
+  paddingTop: "0px",
+  verticalAlign: "middle",
+});
+
+const FormField = styled(TextField)({
+  background: "white",
+  borderRadius: "100px",
+  width: "400px",
+  height: "30px",
+  paddingBottom: "20px",
+});
+
+const FormButton = styled(Button)({
+  backgroundColor: "#1DB954",
+  borderRadius: "100px",
+  margin: "5px",
+  padding: "10px 15px",
+});
 
 class EpisodePage extends Component {
   constructor() {
@@ -78,30 +107,57 @@ class EpisodePage extends Component {
     return (
       <div>
         <NavBar />
-        <Title>{name}</Title>
-        {this.props.currentPage.show ? (
-          <h3>{this.props.currentPage.show.name}</h3>
-        ) : null}
-        <h4>{release_date}</h4>
-        <h6>{this.durationMinutes()} minutes</h6>
-        <Description>{description}</Description>
-        <Iframe id={id} title={name} />
-        {/* <SpotifyPlayer token={this.props.user.access} uris={[uri]} /> */}
-        {/* <SpotifyPlayer
+        <EpisodeDiv container>
+          <Grid item xs={6}>
+            <Iframe id={id} title={name} />
+            {/* <SpotifyPlayer token={this.props.user.access} uris={[uri]} /> */}
+            {/* <SpotifyPlayer
           token={this.props.user.access}
           uris={["spotify:artist:6HQYnRM4OzToCYPpVBInuU"]}
         /> */}
-        <BaseForm onSubmit={this.handleSubmit}>
-          <BaseInput
-            type="text"
-            value={this.state.note}
-            onChange={this.handleChange}
-            placeholder="interesting note here.."
-          ></BaseInput>
-          <NoteButton type="submit">Add Note</NoteButton>
-        </BaseForm>
-        <Title>Your Comments:</Title>
-        <ul>{this.grabEpisodeComments()}</ul>
+            <br />
+            <br />
+            <form onSubmit={this.handleSubmit}>
+              <FormField
+                variant="outlined"
+                type="text"
+                value={this.state.note}
+                onChange={this.handleChange}
+                placeholder="interesting note here.."
+              ></FormField>
+              <FormButton type="submit">Add Note</FormButton>
+            </form>
+            <br />
+            <br />
+            <Typography variant="h3" gutterBottom>
+              Notes:
+            </Typography>
+            <List>{this.grabEpisodeComments()}</List>
+          </Grid>
+          <Grid item xs={6}>
+            <CardDiv>
+              <CardContent>
+                <Typography
+                  variant="h3"
+                  gutterBottom
+                  style={{ color: "#1DB954" }}
+                >
+                  {name}
+                </Typography>
+                <Typography
+                  variant="subtitle1"
+                  gutterBottom
+                  style={{ color: "rgba(255,255,255,0.8)" }}
+                >
+                  {release_date} · {this.durationMinutes()} minutes
+                </Typography>
+                <Typography variant="body1" gutterBottom>
+                  {description}
+                </Typography>
+              </CardContent>
+            </CardDiv>
+          </Grid>
+        </EpisodeDiv>
       </div>
     );
   }
