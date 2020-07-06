@@ -2,71 +2,92 @@ import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import { logoutUser } from "../actions/user";
-import styled from "styled-components";
+import { Drawer, Paper } from "@material-ui/core";
+import { styled } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
+import { Typography } from "@material-ui/core";
+import CollectionsBookmarkIcon from "@material-ui/icons/CollectionsBookmark";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import SearchIcon from "@material-ui/icons/Search";
+import { Avatar } from "@material-ui/core";
 
-const NavDiv = styled.div`
-  overflow: hidden;
-  display: block;
-  padding-top: 40px;
-  padding-bottom: 40px;
-`;
+const Nav = styled(NavLink)({
+  color: "white",
+  textDecoration: "none",
+  backgroundColor: "rgba(0,0,0,0)",
+  "&:hover": {
+    background: "rgba(255,255,255,0.2)",
+  },
+  borderRadius: "100px",
+});
 
-const Nav = styled(NavLink)`
-  color: white;
-  text-decoration: none;
-  float: left;
-  text-align: center;
-  margin-left: 150px;
-  font-size: 1.2em;
-`;
+const useStyles = makeStyles({
+  paper: {
+    // backgroundColor: "black",
+    background: "linear-gradient(135deg, #2C3E50, #000000)",
+    width: "230px",
+    borderRight: "0.1em solid #2C3E50"
+  },
+  main: {
+    display: "inline",
+    color: "white",
+    marginTop: "70px",
+    marginLeft: "15px",
+    color: "#1DB954",
+    padding: "20px",
+    fontSize: "1.1em",
+  },
+  nested: {
+    color: "white",
+    marginLeft: "40px",
+    padding: "10px",
+  },
+  icon: {
+    paddingRight: "10px",
+    verticalAlign: "middle",
+  },
+});
 
-const ProfileImg = styled.img`
-  width: 50px;
-  height: 50px;
-  border-radius: 100%;
-  margin-right: 150px;
-`;
-
-const DropdownDiv = styled.div`
-  float: right;
-  overflow: hidden;
-`;
-
-const DropdownContent = styled.div`
-  position: absolute;
-  min-width: 160px;
-  z-index: 1;
-`;
-
-const DropdownNav = styled(NavLink)`
-  float: none;
-  color: white;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-`;
-
-class NavBar extends Component {
-  render() {
-    return (
-      <NavDiv>
-        <Nav to="/homepage">
-          <ion-icon name="home"></ion-icon> Home
-        </Nav>
-
-        <DropdownDiv onClick={this.props.handleClick}>
-          <ProfileImg src={this.props.user.user.profile_img_url} />
-          <DropdownContent>
-            <DropdownNav to="/bookmarks">My Bookmarks</DropdownNav>
-            <DropdownNav to="/login" onClick={this.props.logoutUser}>
-              Logout
-            </DropdownNav>
-          </DropdownContent>
-        </DropdownDiv>
-      </NavDiv>
-    );
-  }
-}
+const NavBar = (props) => {
+  const classes = useStyles();
+  return (
+    <Drawer
+      classes={{ paper: classes.paper }}
+      anchor="left"
+      variant="permanent"
+    >
+      <Typography variant="button" className={classes.main}>
+        Discover
+      </Typography>
+      <Nav to="/homepage">
+        <Typography variant="body1" className={classes.nested}>
+          <SearchIcon className={classes.icon} />
+          Search
+        </Typography>
+      </Nav>
+      <br />
+      <br />
+      <br />
+      <br />
+      <Typography variant="button" className={classes.main}>
+        <Avatar src={props.user.user.profile_img_url} alt="Account Picture" />
+        My Account
+      </Typography>
+      <Nav to="/bookmarks">
+        <Typography variant="body1" className={classes.nested}>
+          <CollectionsBookmarkIcon className={classes.icon} />
+          My Bookmarks
+        </Typography>
+      </Nav>
+      <Nav to="/login" onClick={props.logoutUser}>
+        <Typography variant="body1" className={classes.nested}>
+          <ExitToAppIcon className={classes.icon} />
+          Logout
+        </Typography>
+      </Nav>
+    </Drawer>
+  );
+};
 
 const mapStateToProps = (state) => {
   return {

@@ -1,5 +1,7 @@
 import React from "react";
 import SearchItem from "./SearchItem";
+import { Grid } from "@material-ui/core";
+
 
 const SearchList = (props) => {
   const renderSearchItems = () => {
@@ -8,7 +10,7 @@ const SearchList = (props) => {
     ));
   };
 
-  return <ul>{renderSearchItems()}</ul>;
+  return <Grid container spacing={2} direction="row">{renderSearchItems()}</Grid>;
 };
 
 export default SearchList;
