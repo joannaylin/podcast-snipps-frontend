@@ -3,17 +3,14 @@ import { connect } from "react-redux";
 import { getComments } from "../actions/comment";
 import NavBar from "../components/NavBar";
 import BookmarkContainer from "../components/BookmarkContainer";
-import { List } from "@material-ui/core";
-import { Grid } from "@material-ui/core";
-import { Typography } from "@material-ui/core";
-import styled from "styled-components";
+import { List, Grid, Typography } from "@material-ui/core";
+import { styled } from "@material-ui/core/styles";
 
 const BookmarkDiv = styled(Grid)({
   paddingTop: "50px",
   paddingLeft: "250px",
   paddingRight: "100px",
-})
-
+});
 
 class UserPage extends Component {
   componentDidMount() {
@@ -28,11 +25,14 @@ class UserPage extends Component {
   };
 
   render() {
+    console.log(this.props);
     return (
       <div>
         <NavBar />
         <BookmarkDiv>
-          <Typography variant="h2" style={{color: "#1DB954"}} gutterBottom>My Notes</Typography>
+          <Typography variant="h2" style={{ color: "#1DB954" }} gutterBottom>
+            My Notes
+          </Typography>
           <List>{this.renderBookmarkContainers()}</List>
         </BookmarkDiv>
       </div>

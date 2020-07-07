@@ -4,16 +4,12 @@ import { fetchPodcastInfo, fetchPodcastEpisodes } from "../actions/podcast.js";
 import EpisodeList from "../components/EpisodeList";
 import NavBar from "../components/NavBar";
 import { PodcastImage } from "../shared/Images";
-import { Title } from "../shared/Titles";
-import { Description } from "../shared/Descriptions";
-import { Typography } from "@material-ui/core";
-import { Grid } from "@material-ui/core";
-import styled from "styled-components";
-import { Divider } from '@material-ui/core';
+import { Typography, Grid, Divider } from "@material-ui/core";
+import { styled } from "@material-ui/core/styles";
 
 const PodcastDiv = styled(Grid)({
   paddingTop: "50px",
-  paddingLeft: "250px",
+  paddingLeft: "300px",
   paddingRight: "100px",
   backgroundColor: "rgba(0,0,0,0.3)",
 });
@@ -40,8 +36,7 @@ class PodcastPage extends Component {
           </Typography>
           <br/>
           <br/>
-          <br/>
-          <Divider style={{backgroundColor: "#2C3E50"}} variant="middle" />
+          <Divider style={{backgroundColor: "#414141"}} variant="middle" />
           <br/>
           <br/>
           <EpisodeList episodes={this.props.episodes} />

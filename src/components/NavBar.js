@@ -9,7 +9,8 @@ import { Typography } from "@material-ui/core";
 import CollectionsBookmarkIcon from "@material-ui/icons/CollectionsBookmark";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import SearchIcon from "@material-ui/icons/Search";
-import { Avatar } from "@material-ui/core";
+import { Avatar, ListItemAvatar } from "@material-ui/core";
+import GraphicEqRoundedIcon from "@material-ui/icons/GraphicEqRounded";
 
 const Nav = styled(NavLink)({
   color: "white",
@@ -23,13 +24,11 @@ const Nav = styled(NavLink)({
 
 const useStyles = makeStyles({
   paper: {
-    // backgroundColor: "black",
-    background: "linear-gradient(135deg, #2C3E50, #000000)",
+    background: "linear-gradient(to right, #414141, #000000)",
     width: "230px",
-    borderRight: "0.1em solid #2C3E50"
+    borderRadius: "10px",
   },
   main: {
-    display: "inline",
     color: "white",
     marginTop: "70px",
     marginLeft: "15px",
@@ -70,13 +69,23 @@ const NavBar = (props) => {
       <br />
       <br />
       <Typography variant="button" className={classes.main}>
-        <Avatar src={props.user.user.profile_img_url} alt="Account Picture" />
         My Account
+        {/* <Avatar
+          src={props.user.user.profile_img_url}
+          alt="Account Picture"
+          component="span"
+        /> */}
       </Typography>
       <Nav to="/bookmarks">
         <Typography variant="body1" className={classes.nested}>
           <CollectionsBookmarkIcon className={classes.icon} />
           My Bookmarks
+        </Typography>
+      </Nav>
+      <Nav to="/episodes">
+        <Typography variant="body1" className={classes.nested}>
+          <GraphicEqRoundedIcon className={classes.icon} />
+          My Episodes
         </Typography>
       </Nav>
       <Nav to="/login" onClick={props.logoutUser}>

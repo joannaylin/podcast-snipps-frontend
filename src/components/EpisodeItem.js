@@ -1,20 +1,14 @@
 import React from "react";
-import { PlainLink } from "../shared/Links";
-import { Title } from "../shared/Titles.js";
-import { Description } from "../shared/Descriptions.js";
-import { Card } from "@material-ui/core";
-import { CardContent } from "@material-ui/core";
-import { CardActions } from "@material-ui/core";
-import { Button } from "@material-ui/core";
-import { Typography } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+import { Card, CardContent, CardActions, Button, Typography } from "@material-ui/core";
+import { styled } from "@material-ui/core/styles";
 
 const ECard = styled(Card)({
   backgroundColor: "black",
   "&:hover": {
     background: "rgba(255,255,255,0.2)",
   },
+  borderRadius: "20px"
 });
 
 const EButton = styled(Button)({

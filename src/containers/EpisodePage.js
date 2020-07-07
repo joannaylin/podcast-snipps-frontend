@@ -6,7 +6,7 @@ import { addComment, getComments } from "../actions/comment";
 import NavBar from "../components/NavBar";
 import Iframe from "../components/Iframe";
 import Comment from "../components/Comment";
-import styled from "styled-components";
+import { styled } from "@material-ui/core/styles";
 import {
   Button,
   Card,
@@ -19,7 +19,7 @@ import {
 
 const EpisodeDiv = styled(Grid)({
   paddingTop: "150px",
-  paddingLeft: "250px",
+  paddingLeft: "300px",
   paddingRight: "100px",
   backgroundColor: "rgba(0,0,0,0.3)",
 });
@@ -165,8 +165,7 @@ class EpisodePage extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    currentPage: state.episode.currentPage,
-    isPlaying: state.episode.currentPage.isPlaying,
+    currentPage: state.episodes.currentPage,
     comments: state.comments,
     user: state.users.user,
   };

@@ -2,7 +2,6 @@ import React from "react";
 import SearchItem from "./SearchItem";
 import { Grid } from "@material-ui/core";
 
-
 const SearchList = (props) => {
   const renderSearchItems = () => {
     return props.results.map((result) => (

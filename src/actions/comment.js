@@ -76,3 +76,4 @@ export function removeComment(id) {
     .then(() => dispatch({type: "REMOVE_COMMENT", id}))
   }
 }
+

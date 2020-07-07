@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { updateComment, removeComment } from "../actions/comment";
-import { BaseInput, BaseButton } from "../shared/Forms";
 import styled from "styled-components";
 import { ListItem } from "@material-ui/core";
 import { ListItemSecondaryAction } from "@material-ui/core";

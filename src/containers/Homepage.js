@@ -1,17 +1,18 @@
 import React, { Component } from "react";
-import NavBar from "../components/NavBar";
-import styled from "styled-components";
 import { connect } from "react-redux";
 import { fetchSearchResults } from "../actions/podcast";
-import SearchList from "../components/SearchList";
-import { BaseForm, BaseInput, BaseButton } from "../shared/Forms";
-import { Button } from "@material-ui/core";
-import SearchIcon from "@material-ui/icons/Search";
-import { TextField } from "@material-ui/core";
-import { Grid } from "@material-ui/core";
 import SpotifyPlayer from "react-spotify-web-playback";
-import { Typography } from "@material-ui/core";
-import { Divider } from "@material-ui/core";
+import NavBar from "../components/NavBar";
+import SearchList from "../components/SearchList";
+import SearchIcon from "@material-ui/icons/Search";
+import { styled } from "@material-ui/core/styles";
+import {
+  Button,
+  TextField,
+  Grid,
+  Typography,
+  Divider,
+} from "@material-ui/core";
 
 const STextField = styled(TextField)({
   background: "white",
@@ -22,7 +23,7 @@ const STextField = styled(TextField)({
 
 const ContentDiv = styled(Grid)({
   paddingTop: "150px",
-  paddingLeft: "250px"
+  paddingLeft: "300px",
 });
 
 const SButton = styled(Button)({
@@ -30,6 +31,7 @@ const SButton = styled(Button)({
   borderRadius: "100px",
   margin: "5px",
   padding: "10px 15px",
+  marginBottom: "30px",
 });
 
 class Homepage extends Component {
@@ -63,9 +65,11 @@ class Homepage extends Component {
           justify-content="center"
         >
           <Typography variant="h1">Podcast Snippets</Typography>
-          <Typography variant="subtitle1" gutterBottom>Let's find a podcast for you to listen to.</Typography>
+          <Typography variant="subtitle1" gutterBottom>
+            Let's find a podcast for you to listen to.
+          </Typography>
           <form onSubmit={(e) => this.handleSubmit(e)}>
-            <STextField 
+            <STextField
               id="search"
               variant="outlined"
               type="text"

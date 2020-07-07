@@ -16,9 +16,29 @@ export function fetchEpisode(episodeId) {
     fetch(`${apiURL}episode_search`, reqObj)
       .then((resp) => resp.json())
       .then((data) => {
+        console.log("you made it to fetchEpisode!!!")
         const episode = data.episode;
         dispatch({ type: "ADD_EPISODE", episode });
       });
   };
 }
 
+// fetch all episodes from the backend
+export function fetchEpisodes() {
+  return (dispatch) => {
+    const reqObj = {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    };
+
+    fetch(`${apiURL}episodes`, reqObj)
+    .then(resp=> resp.json())
+    .then(data => {
+      console.log(data)
+      dispatch({type: "GET_EPISODES", data})
+    })
+  };
+}
