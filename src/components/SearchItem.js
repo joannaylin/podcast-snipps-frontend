@@ -1,27 +1,8 @@
 import React from "react";
-import { PodcastImage } from "../shared/Images.js";
-import { Title } from "../shared/Titles.js";
-import { Description } from "../shared/Descriptions.js";
-import { PlainLink } from "../shared/Links";
-import styled from "styled-components";
-import { Card } from "@material-ui/core";
-import { CardContent } from "@material-ui/core";
-import { CardActions } from "@material-ui/core";
-import { Button } from "@material-ui/core";
-import { Typography } from "@material-ui/core";
-import { Grid } from "@material-ui/core";
-import { CardMedia } from "@material-ui/core";
 import { Link } from "react-router-dom";
-
-// const SearchDiv = styled.div`
-//   background-color: rgba(0,0,0, 0.6)
-//   border-radius: 100px;
-//   width: 800px;
-//   height: 250px;
-//   margin-left: 120px;
-//   display: block;
-//   overflow: hidden;
-// `;
+import { PodcastImage } from "../shared/Images.js";
+import { Card, CardContent, Typography, Grid } from "@material-ui/core";
+import { styled } from "@material-ui/core/styles";
 
 const SCard = styled(Card)({
   width: "550px",
@@ -30,12 +11,7 @@ const SCard = styled(Card)({
   "&:hover": {
     background: "rgba(255,255,255,0.2)",
   },
-});
-
-const SButton = styled(Button)({
-  backgroundColor: "#1DB954",
-  borderRadius: "100px",
-  padding: "10px 15px",
+  borderRadius: "20px"
 });
 
 const SearchItem = (props) => {
@@ -62,9 +38,6 @@ const SearchItem = (props) => {
               {description.substring(0,300)}...
             </Typography>
           </CardContent>
-          <CardActions>
-            <SButton size="small">View More</SButton>
-          </CardActions>
         </Link>
       </SCard>
     </Grid>

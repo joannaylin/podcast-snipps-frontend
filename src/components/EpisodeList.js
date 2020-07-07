@@ -2,7 +2,6 @@ import React from "react";
 import EpisodeItem from "./EpisodeItem";
 import { Typography } from "@material-ui/core";
 
-
 const EpisodeList = (props) => {
   const renderEpisodes = () => {
     return props.episodes.map((episode) => (

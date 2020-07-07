@@ -1,12 +1,12 @@
 import { combineReducers } from "redux"
 import users from "./users"
 import podcasts from "./podcasts"
-import episode from "./episode"
+import episodes from "./episodes"
 import comments from "./comments"
 
 export default combineReducers({
   users,
   podcasts,
-  episode,
+  episodes,
   comments
 })
