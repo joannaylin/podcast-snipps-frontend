@@ -4,7 +4,7 @@ import { fetchPodcastInfo, fetchPodcastEpisodes } from "../actions/podcast.js";
 import EpisodeList from "../components/EpisodeList";
 import NavBar from "../components/NavBar";
 import { PodcastImage } from "../shared/Images";
-import { Typography, Grid, Divider } from "@material-ui/core";
+import { Typography, Grid, Divider, Container } from "@material-ui/core";
 import { styled } from "@material-ui/core/styles";
 
 const PodcastDiv = styled(Grid)({
@@ -12,6 +12,10 @@ const PodcastDiv = styled(Grid)({
   paddingLeft: "300px",
   paddingRight: "100px",
   backgroundColor: "rgba(0,0,0,0.3)",
+});
+
+const InfoDiv = styled(Container)({
+  display: "inline-block",
 });
 
 class PodcastPage extends Component {
@@ -22,25 +26,33 @@ class PodcastPage extends Component {
 
   render() {
     const { name, description } = this.props.show;
-
     return (
       <div>
         <NavBar />
-        <PodcastDiv>
-          <PodcastImage src={this.props.location.state.imgUrl} />
-          <Typography variant="h3" gutterBottom  style={{color: "#1DB954"}}>
-            {name}
-          </Typography>
-          <Typography variant="body1" gutterBottom>
-            {description}
-          </Typography>
-          <br/>
-          <br/>
-          <Divider style={{backgroundColor: "#414141"}} variant="middle" />
-          <br/>
-          <br/>
-          <EpisodeList episodes={this.props.episodes} />
-        </PodcastDiv>
+        {this.props.loader ? (
+          <Typography variant="h3">Loading...</Typography>
+        ) : (
+          <PodcastDiv>
+            <InfoDiv>
+              <PodcastImage src={this.props.location.state.imgUrl} />
+              <Typography
+                variant="h3"
+                gutterBottom
+                style={{ color: "#1DB954" }}
+              >
+                {name}
+              </Typography>
+              <Typography variant="body1" gutterBottom>
+                {description}
+              </Typography>
+              <br />
+            </InfoDiv>
+            <Divider style={{ backgroundColor: "#414141" }} variant="middle" />
+            <br />
+            <br />
+            <EpisodeList episodes={this.props.episodes} />
+          </PodcastDiv>
+        )}
       </div>
     );
   }
@@ -50,6 +62,7 @@ const mapStateToProps = (state) => {
   return {
     show: state.podcasts.show.info,
     episodes: state.podcasts.show.episodes,
+    loader: state.loader,
   };
 };
 

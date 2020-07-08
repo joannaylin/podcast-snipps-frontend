@@ -64,7 +64,6 @@ class SavedEpisodesPage extends Component {
   };
 
   render() {
-    console.log(this.props.episodes);
     return (
       <div>
         <NavBar />

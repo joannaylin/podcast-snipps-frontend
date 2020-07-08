@@ -14,10 +14,11 @@ const TitleListItem = styled(Typography)({
 });
 
 const NListItem = styled(ListItem)({
-  backgroundColor: "rgba(0,0,0,0.2)",
+  background: "rgba(0,0,0,0.2)",
 });
 
 const StyledChatIcon = styled(ChatIcon)({
+  marginLeft: "20px",
   marginRight: "10px",
 });
 

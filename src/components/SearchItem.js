@@ -19,7 +19,6 @@ const SearchItem = (props) => {
   // not every podcast has 3 images, cannot specify image[2] consistently (may have errors)
   const images = props.podcast.images;
   const imgUrl = images[images.length - 2].url;
-
   return (
     <Grid item xs={6}>
       <SCard >

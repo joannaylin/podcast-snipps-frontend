@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import { logoutUser } from "../actions/user";
 import { Drawer, Paper } from "@material-ui/core";
-import { styled } from "@material-ui/core/styles";
+import styled from "styled-components";
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography } from "@material-ui/core";
 import CollectionsBookmarkIcon from "@material-ui/icons/CollectionsBookmark";
@@ -22,15 +22,27 @@ const Nav = styled(NavLink)({
   borderRadius: "100px",
 });
 
+const Logo = styled.img`
+  height: 100px;
+  width: 100px;
+  margin-left: 60px;
+  margin-top: 35px;
+`;
+
 const useStyles = makeStyles({
   paper: {
     background: "linear-gradient(to right, #414141, #000000)",
     width: "230px",
     borderRadius: "10px",
   },
+  logo: {
+    color: "white",
+    marginLeft: "40px",
+    marginBottom: "30px",
+  },
   main: {
     color: "white",
-    marginTop: "70px",
+    marginTop: "10px",
     marginLeft: "15px",
     color: "#1DB954",
     padding: "20px",
@@ -55,6 +67,10 @@ const NavBar = (props) => {
       anchor="left"
       variant="permanent"
     >
+      <Logo src="/logo.png" alt="Podcast Snippets Logo" />
+      <Typography variant="button" className={classes.logo}>
+        Podcast Snippets
+      </Typography>
       <Typography variant="button" className={classes.main}>
         Discover
       </Typography>

@@ -35,12 +35,15 @@ const FormField = styled(TextField)({
   background: "white",
   borderRadius: "100px",
   width: "400px",
-  height: "30px",
-  paddingBottom: "20px",
+  height: "20px",
+  paddingBottom: "30px",
 });
 
 const FormButton = styled(Button)({
   backgroundColor: "#1DB954",
+  "&:hover": {
+    background: "#1DB954",
+  },
   borderRadius: "100px",
   margin: "5px",
   padding: "10px 15px",
@@ -55,7 +58,6 @@ class EpisodePage extends Component {
   }
 
   componentDidMount() {
-    this.props.getCurrentUser();
     this.props.fetchEpisode(this.props.location.state.episodeId);
     this.props.getComments();
   }
@@ -109,7 +111,13 @@ class EpisodePage extends Component {
         <NavBar />
         <EpisodeDiv container>
           <Grid item xs={6}>
-            <Iframe id={id} title={name} />
+            {this.props.loader ? (
+              <Typography variant="h1" style={{ color: "white" }}>
+                Loading
+              </Typography>
+            ) : (
+              <Iframe id={id} title={name} />
+            )}
             {/* <SpotifyPlayer token={this.props.user.access} uris={[uri]} /> */}
             {/* <SpotifyPlayer
           token={this.props.user.access}
@@ -130,7 +138,7 @@ class EpisodePage extends Component {
             <br />
             <br />
             <Typography variant="h3" gutterBottom>
-              Notes:
+              Thoughts?
             </Typography>
             <List>{this.grabEpisodeComments()}</List>
           </Grid>
@@ -168,6 +176,7 @@ const mapStateToProps = (state) => {
     currentPage: state.episodes.currentPage,
     comments: state.comments,
     user: state.users.user,
+    loader: state.loader,
   };
 };
 
