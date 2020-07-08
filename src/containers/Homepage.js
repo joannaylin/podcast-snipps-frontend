@@ -6,19 +6,16 @@ import NavBar from "../components/NavBar";
 import SearchList from "../components/SearchList";
 import SearchIcon from "@material-ui/icons/Search";
 import { styled } from "@material-ui/core/styles";
-import {
-  Button,
-  TextField,
-  Grid,
-  Typography,
-  Divider,
-} from "@material-ui/core";
+import { Button, TextField, Grid, Typography } from "@material-ui/core";
 
 const STextField = styled(TextField)({
   background: "white",
   borderRadius: "100px",
   width: "300px",
   height: "50px",
+  "&:focus": {
+    outline: "none",
+  },
 });
 
 const ContentDiv = styled(Grid)({
@@ -28,6 +25,9 @@ const ContentDiv = styled(Grid)({
 
 const SButton = styled(Button)({
   backgroundColor: "#1DB954",
+  "&:hover": {
+    background: "#1DB954",
+  },
   borderRadius: "100px",
   margin: "5px",
   padding: "10px 15px",
@@ -68,7 +68,7 @@ class Homepage extends Component {
           <Typography variant="subtitle1" gutterBottom>
             Let's find a podcast for you to listen to.
           </Typography>
-          <form onSubmit={(e) => this.handleSubmit(e)}>
+          <form onSubmit={this.handleSubmit}>
             <STextField
               id="search"
               variant="outlined"
@@ -81,8 +81,16 @@ class Homepage extends Component {
               Search
             </SButton>
           </form>
+          {this.props.loader ? <Typography variant="h1" style={{color: "white"}}> loading... </Typography> : null}
+          {this.props.noResults ? (
+            <Typography
+              variant="h6"
+              style={{ color: "#cd2026", backgroundColor: "rgba(0,0,0,0.2)" }}
+            >
+              Sorry, looks like your search has no matching results..try again?{" "}
+            </Typography>
+          ) : null}
           <SearchList results={this.props.searchResults} />
-          {/* TODO: render an error message when searchResults are 0  */}
         </ContentDiv>
       </div>
     );
@@ -92,6 +100,8 @@ class Homepage extends Component {
 const mapStateToProps = (state) => {
   return {
     searchResults: state.podcasts.searchResults,
+    noResults: state.podcasts.noResults,
+    loader: state.loader,
   };
 };
 

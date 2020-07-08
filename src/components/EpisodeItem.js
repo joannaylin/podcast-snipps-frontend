@@ -1,6 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Card, CardContent, CardActions, Button, Typography } from "@material-ui/core";
+import {
+  Card,
+  CardContent,
+  CardActions,
+  Button,
+  Typography,
+} from "@material-ui/core";
 import { styled } from "@material-ui/core/styles";
 
 const ECard = styled(Card)({
@@ -8,11 +14,14 @@ const ECard = styled(Card)({
   "&:hover": {
     background: "rgba(255,255,255,0.2)",
   },
-  borderRadius: "20px"
+  borderRadius: "20px",
 });
 
 const EButton = styled(Button)({
   backgroundColor: "#1DB954",
+  "&:hover": {
+    background: "#1DB954",
+  },
   borderRadius: "100px",
   padding: "10px 15px",
 });
