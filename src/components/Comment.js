@@ -84,7 +84,7 @@ class Comment extends Component {
     } else {
       result = (
         <Item>
-          <Typography variant="subtitle1">{this.props.comment.note}</Typography>
+          <Typography variant="subtitle1" style={{width: "400px"}}>{this.props.comment.note}</Typography>
           <ListItemSecondaryAction>
             <ItemButton onClick={this.toggleEditForm}>
               <EditIcon style={{ color: "white" }} />

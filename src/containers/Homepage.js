@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchSearchResults } from "../actions/podcast";
-import SpotifyPlayer from "react-spotify-web-playback";
 import NavBar from "../components/NavBar";
 import SearchList from "../components/SearchList";
 import SearchIcon from "@material-ui/icons/Search";
 import { styled } from "@material-ui/core/styles";
 import { Button, TextField, Grid, Typography } from "@material-ui/core";
+import Lottie from "react-lottie";
+import animationData from "../lotties/loading.json";
 
 const STextField = styled(TextField)({
   background: "white",
@@ -55,6 +56,15 @@ class Homepage extends Component {
   };
 
   render() {
+    const defaultOptions = {
+      loop: true,
+      autoplay: true,
+      animationData: animationData,
+      rendererSettings: {
+        preserveAspectRatio: "xMidYMid slice",
+      },
+    };
+
     return (
       <div>
         <NavBar />
@@ -81,7 +91,9 @@ class Homepage extends Component {
               Search
             </SButton>
           </form>
-          {this.props.loader ? <Typography variant="h1" style={{color: "white"}}> loading... </Typography> : null}
+          {this.props.loader ? (
+            <Lottie options={defaultOptions} height={400} width={400} />
+          ) : null}
           {this.props.noResults ? (
             <Typography
               variant="h6"

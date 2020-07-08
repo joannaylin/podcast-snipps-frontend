@@ -6,6 +6,8 @@ import { addComment, getComments } from "../actions/comment";
 import NavBar from "../components/NavBar";
 import Iframe from "../components/Iframe";
 import Comment from "../components/Comment";
+import Lottie from "react-lottie";
+import animationData from "../lotties/loading.json";
 import { styled } from "@material-ui/core/styles";
 import {
   Button,
@@ -103,26 +105,26 @@ class EpisodePage extends Component {
   };
 
   render() {
-    console.log(this.props.currentPage);
+    const defaultOptions = {
+      loop: true,
+      autoplay: true,
+      animationData: animationData,
+      rendererSettings: {
+        preserveAspectRatio: "xMidYMid slice",
+      },
+    };
 
-    const { id, name, description, release_date, uri } = this.props.currentPage;
+    const { id, name, description, release_date } = this.props.currentPage;
     return (
       <div>
         <NavBar />
         <EpisodeDiv container>
           <Grid item xs={6}>
             {this.props.loader ? (
-              <Typography variant="h1" style={{ color: "white" }}>
-                Loading
-              </Typography>
+              <Lottie options={defaultOptions} height={400} width={400} />
             ) : (
               <Iframe id={id} title={name} />
             )}
-            {/* <SpotifyPlayer token={this.props.user.access} uris={[uri]} /> */}
-            {/* <SpotifyPlayer
-          token={this.props.user.access}
-          uris={["spotify:artist:6HQYnRM4OzToCYPpVBInuU"]}
-        /> */}
             <br />
             <br />
             <form onSubmit={this.handleSubmit}>
@@ -138,7 +140,7 @@ class EpisodePage extends Component {
             <br />
             <br />
             <Typography variant="h3" gutterBottom>
-              Thoughts?
+              Notes to Self:
             </Typography>
             <List>{this.grabEpisodeComments()}</List>
           </Grid>

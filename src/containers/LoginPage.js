@@ -2,6 +2,8 @@ import React from "react";
 import LoginButton from "../components/LoginButton";
 import { Typography, Grid } from "@material-ui/core";
 import { styled } from "@material-ui/core/styles";
+import Lottie from "react-lottie";
+import animationData from "../lotties/8490-audio-wave-micro-interaction.json";
 
 const LoginInfo = styled(Grid)({
   marginTop: "200px",
@@ -10,6 +12,14 @@ const LoginInfo = styled(Grid)({
 });
 
 const LoginPage = () => {
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
   return (
     <Grid
       container
@@ -30,6 +40,7 @@ const LoginPage = () => {
       </LoginInfo>
       <Grid item xs={6} align="center">
         <LoginButton />
+        <Lottie options={defaultOptions} height={200} width={200}/>
       </Grid>
     </Grid>
   );

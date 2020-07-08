@@ -31,14 +31,12 @@ const EpisodeCard = (props) => {
     episode_name,
     show_name,
     spotify_episode_id,
-    img_url,
     duration,
   } = props.episode;
   return (
     <Grid item xs={6}>
       <ECard>
         <CardContent>
-          {/* <Avatar src={img_url} alt="podcast logo" /> */}
           <Typography variant="h4">{episode_name}</Typography>
           <Typography variant="body1">{show_name}</Typography>
           <Typography variant="body1">{duration} minutes</Typography>
