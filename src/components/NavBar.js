@@ -1,15 +1,14 @@
-import React, { Component } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import { logoutUser } from "../actions/user";
-import { Drawer, Paper } from "@material-ui/core";
+import { Drawer } from "@material-ui/core";
 import styled from "styled-components";
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography } from "@material-ui/core";
 import CollectionsBookmarkIcon from "@material-ui/icons/CollectionsBookmark";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import SearchIcon from "@material-ui/icons/Search";
-import { Avatar, ListItemAvatar } from "@material-ui/core";
 import GraphicEqRoundedIcon from "@material-ui/icons/GraphicEqRounded";
 
 const Nav = styled(NavLink)({
@@ -41,7 +40,6 @@ const useStyles = makeStyles({
     marginBottom: "30px",
   },
   main: {
-    color: "white",
     marginTop: "10px",
     marginLeft: "15px",
     color: "#1DB954",
@@ -95,7 +93,7 @@ const NavBar = (props) => {
       <Nav to="/bookmarks">
         <Typography variant="body1" className={classes.nested}>
           <CollectionsBookmarkIcon className={classes.icon} />
-          My Bookmarks
+          My Notes
         </Typography>
       </Nav>
       <Nav to="/episodes">

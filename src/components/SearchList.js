@@ -9,7 +9,7 @@ const SearchList = (props) => {
     ));
   };
 
-  return <Grid container spacing={2} direction="row">{renderSearchItems()}</Grid>;
+  return <Grid container spacing={2} direction="row" style={{margin: 0, width: "100%"}} >{renderSearchItems()}</Grid>;
 };
 
 export default SearchList;

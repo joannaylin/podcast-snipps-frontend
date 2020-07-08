@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
-import LoginButton from "./components/LoginButton";
 import AuthCheck from "./components/AuthCheck";
 import { getCurrentUser } from "./actions/user";
 import Homepage from "./containers/Homepage";

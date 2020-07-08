@@ -25,13 +25,12 @@ class UserPage extends Component {
   };
 
   render() {
-    console.log(this.props);
     return (
       <div>
         <NavBar />
         <BookmarkDiv>
           <Typography variant="h2" style={{ color: "#1DB954" }} gutterBottom>
-            My Notes
+            Notes to Self
           </Typography>
           <List>{this.renderBookmarkContainers()}</List>
         </BookmarkDiv>
