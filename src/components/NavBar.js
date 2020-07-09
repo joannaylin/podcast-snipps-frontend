@@ -2,10 +2,9 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import { logoutUser } from "../actions/user";
-import { Drawer } from "@material-ui/core";
+import { Drawer, Typography } from "@material-ui/core";
 import styled from "styled-components";
 import { makeStyles } from "@material-ui/core/styles";
-import { Typography } from "@material-ui/core";
 import CollectionsBookmarkIcon from "@material-ui/icons/CollectionsBookmark";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import SearchIcon from "@material-ui/icons/Search";
@@ -84,11 +83,6 @@ const NavBar = (props) => {
       <br />
       <Typography variant="button" className={classes.main}>
         My Account
-        {/* <Avatar
-          src={props.user.user.profile_img_url}
-          alt="Account Picture"
-          component="span"
-        /> */}
       </Typography>
       <Nav to="/bookmarks">
         <Typography variant="body1" className={classes.nested}>
