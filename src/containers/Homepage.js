@@ -75,9 +75,10 @@ class Homepage extends Component {
           justify-content="center"
         >
           <Typography variant="h1">Podcast Snippets</Typography>
-          <Typography variant="subtitle1" gutterBottom>
+          <Typography variant="body1" gutterBottom>
             Let's find a podcast for you to listen to.
           </Typography>
+          <br />
           <form onSubmit={this.handleSubmit}>
             <STextField
               id="search"
@@ -97,7 +98,7 @@ class Homepage extends Component {
           {this.props.noResults ? (
             <Typography
               variant="h6"
-              style={{ color: "#cd2026", backgroundColor: "rgba(0,0,0,0.2)" }}
+              style={{ color: "#cd2026", backgroundColor: "rgba(0,0,0,0.8)" }}
             >
               Sorry, looks like your search has no matching results..try again?{" "}
             </Typography>

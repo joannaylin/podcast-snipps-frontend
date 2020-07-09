@@ -18,8 +18,8 @@ export function fetchSearchResults(query) {
     fetch(`${apiURL}podcast_search`, reqObj)
       .then((resp) => resp.json())
       .then((shows) => {
+        dispatch({ type: "END_FETCH" });
         if (shows.shows.shows.items.length > 0) {
-          dispatch({ type: "END_FETCH" });
           const podcasts = shows.shows.shows.items;
           dispatch({ type: "ADD_PODCASTS", podcasts });
         } else {

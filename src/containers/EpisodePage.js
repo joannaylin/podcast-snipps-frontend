@@ -82,6 +82,8 @@ class EpisodePage extends Component {
       spotify_show_id: this.props.currentPage.show.id,
     };
 
+    // had difficulty finding a way to get access to position in audio
+    // start_timestamp was left as black for time being. 
     const commentObj = {
       note: this.state.note,
       start_timestamp: "blank for now",
