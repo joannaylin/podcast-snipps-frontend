@@ -139,7 +139,7 @@ class EpisodePage extends Component {
             </form>
             <br />
             <br />
-            <Typography variant="h3" gutterBottom>
+            <Typography variant="h5" gutterBottom>
               Notes to Self:
             </Typography>
             <List>{this.grabEpisodeComments()}</List>

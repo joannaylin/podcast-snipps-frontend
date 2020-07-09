@@ -30,7 +30,7 @@ class UserPage extends Component {
         <NavBar />
         <BookmarkDiv>
           <Typography variant="h2" style={{ color: "#1DB954" }} gutterBottom>
-            Notes to Self
+            My Snippets
           </Typography>
           <List>{this.renderBookmarkContainers()}</List>
         </BookmarkDiv>
