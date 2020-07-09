@@ -93,7 +93,7 @@ const NavBar = (props) => {
       <Nav to="/bookmarks">
         <Typography variant="body1" className={classes.nested}>
           <CollectionsBookmarkIcon className={classes.icon} />
-          My Notes
+          My Snippets
         </Typography>
       </Nav>
       <Nav to="/episodes">

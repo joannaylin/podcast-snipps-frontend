@@ -34,6 +34,9 @@ const ItemButton = styled(Button)({
 
 const SaveButton = styled(Button)({
   backgroundColor: "#1DB954",
+  "&:hover": {
+    background: "1DB954",
+  },
   borderRadius: "100px",
   margin: "5px",
   marginTop: "0px",
@@ -84,7 +87,9 @@ class Comment extends Component {
     } else {
       result = (
         <Item>
-          <Typography variant="subtitle1" style={{width: "400px"}}>{this.props.comment.note}</Typography>
+          <Typography variant="subtitle1" style={{ width: "400px" }}>
+            {this.props.comment.note}
+          </Typography>
           <ListItemSecondaryAction>
             <ItemButton onClick={this.toggleEditForm}>
               <EditIcon style={{ color: "white" }} />
