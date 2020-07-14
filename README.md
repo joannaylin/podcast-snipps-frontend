@@ -1,6 +1,6 @@
 ## Podcast Snippets 
   * Create notes while listening your favorite podcasts.
-  * Relies on a Ruby on Rails API [backend](https://github.com/joannaylin/podcast-snippets-api).
+  * Relies on a Ruby on Rails API [Backend](https://github.com/joannaylin/podcast-snippets-api).
 
 ## Features
   * Authorizes user's through Spotify's Web API Authorization process.
