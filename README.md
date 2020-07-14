@@ -1,5 +1,5 @@
 ## Podcast Snippets 
-  * Create notes while listening your favorite podcasts.
+  * Avid podcast listener but can't remember everything? Use Podcast Snippets - an app to search and play podcasts while saving comments for later all in one spot. 
   * Relies on a Ruby on Rails API [Backend](https://github.com/joannaylin/podcast-snippets-api).
 
 ## Features
