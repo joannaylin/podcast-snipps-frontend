@@ -1,7 +1,7 @@
-## Podcast Snippets 
+## Podcast Snippets :microphone:
 *Avid podcast listener but can't remember everything? Use Podcast Snippets - an app to search and play podcasts while saving comments for later all in one spot.*
   * Relies on a Ruby on Rails API [Backend](https://github.com/joannaylin/podcast-snippets-api).
-  *[Video Demo](https://www.youtube.com/watch?v=tIwFceONeP8)
+  * [Video Demo](https://www.youtube.com/watch?v=tIwFceONeP8)
 
 ## Features
   * Authorizes user's through Spotify's Web API Authorization process.
