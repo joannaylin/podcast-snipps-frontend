@@ -14,9 +14,6 @@ const STextField = styled(TextField)({
   borderRadius: "100px",
   width: "300px",
   height: "50px",
-  "&:focus": {
-    outline: "none",
-  },
 });
 
 const ContentDiv = styled(Grid)({
@@ -78,7 +75,7 @@ class Homepage extends Component {
           <Typography variant="body1" gutterBottom>
             Let's find a podcast for you to listen to.
           </Typography>
-          <br />
+          <br/>
           <form onSubmit={this.handleSubmit}>
             <STextField
               id="search"

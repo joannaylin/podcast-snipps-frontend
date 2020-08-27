@@ -24,6 +24,9 @@ const CardButton = styled(Button)({
   backgroundColor: "#1DB954",
   borderRadius: "100px",
   padding: "10px 15px",
+  "&:hover": {
+    background: "#1DB954",
+  },
 });
 
 const EpisodeCard = (props) => {
